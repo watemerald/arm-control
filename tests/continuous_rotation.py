@@ -18,10 +18,12 @@ logger = logging.getLogger(__name__)
 
 def back_and_forth(ser, a=10, b=180):
     while True:
-        ser.write(bytes(str(a) + 're', 'utf-8'))
+        x = "{0}r{1}s{2}le".format(a,20,120)
+        ser.write(bytes(x, 'utf-8'))
         status = ser.readline()
         logger.info(status)
-        ser.write(bytes(str(b) + 're', 'utf-8'))
+        y = "{0}r{1}s{2}le".format(b,110,180)
+        ser.write(bytes(y, 'utf-8'))
         status = ser.readline()
         logger.info(status)
 
